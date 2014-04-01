@@ -64,4 +64,4 @@
             addLine(event);
         })      
     }
-})(visiojQuery)
+})((typeof(visiojQuery)=="undefined"?jQuery:visiojQuery))
