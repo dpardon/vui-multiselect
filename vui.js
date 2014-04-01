@@ -1,20 +1,22 @@
 (function($) {
   //template variables 
-  var genLI='<li id="@prefix@@value@" class="ui-widget-content ui-corner-all"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span title="@label@">@value@</span><span class="ui-icon ui-icon-close" title="Remove item"></span></li>',
-      container='<div class="vui vui-multiselect"><ul class="ui-widget"></ul><button>@button@</button></div>';
+    var genLI='<li style="max-width=@width@;min-width=@width@" id="@prefix@@value@" class="ui-widget-content ui-corner-all"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span title="@label@">@text@</span><span class="ui-icon ui-icon-close" title="Remove item"></span></li>',
+        container='<div class="vui vui-multiselect"><ul class="ui-widget"></ul><button>@button@</button></div>';
 
     
     $.fn.visioMultiselect=function(options){
         
         var settings = $.extend({
             // These are the defaults options
-            duration: 2000,
-            eventID:"vbroadcast",
-            prefix:"vui_multi_li_",
-            effect: "highlight",
-            button:"Run stuff",
+            duration: 2000, //animation duration
+            eventID:"vbroadcast", //event to listen
+            prefix:"vui_multi_li_", //prefix of DOM IDs created
+            effect: "highlight", //effect
+            button:"Run stuff", //label
             buttonIcon:"ui-icon-circle-check",
-            action:function(list){
+            width:"200px", //in pixels, or "auto"
+            text:"value",   //value | label   (item content display)     
+            action:function(list){ //handler triggered when clicking run button
                 alert("Run custom stuff with list of values: "+list.join(","));
             }
         }, options ),
@@ -34,7 +36,13 @@
           
               if( !self.find(newID).length){
                   //ID does not exist, this is a new row
-                  var newli=genLI.replace(/@prefix@/g,settings.prefix).replace(/@value@/g,e.message.value).replace(/@label@/g,e.message.label);
+                  var m=e.message,
+                      text=(settings.text=="value"?m.value:m.label), 
+                      newli=genLI.replace(/@prefix@/g,settings.prefix)
+                                 .replace(/@value@/g,m.value).replace(/@label@/g,m.label)
+                                 .replace(/@text@/g,text)
+                                 .replace(/@width@/g,settings.width);
+                                 
                   $(newli).appendTo(self.find("ul").first()).effect(settings.effect, {}, settings.duration).hover(function() {
                           $( this ).toggleClass( "ui-state-hover" );
                       }).tooltip().find('.ui-icon-close').click(function(){
