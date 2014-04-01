@@ -37,7 +37,7 @@
                   var newli=genLI.replace(/@prefix@/g,settings.prefix).replace(/@value@/g,e.message.value).replace(/@label@/g,e.message.label);
                   $(newli).appendTo(self.find("ul").first()).effect(settings.effect, {}, settings.duration).hover(function() {
                           $( this ).toggleClass( "ui-state-hover" );
-                      }).find('.ui-icon-close').click(function(){
+                      }).tooltip().find('.ui-icon-close').click(function(){
                       
                         $(newID).effect('fade', {}, 250, function(){
                                 $(this).remove();
