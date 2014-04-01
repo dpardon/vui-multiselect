@@ -47,8 +47,8 @@
                                  .replace(/@text@/g,text)
                                  .replace(/@width@/g,settings.width);
                                  
-                  $(newli).appendTo(self.find("ul").first()).effect(settings.effect, {}, settings.duration).hover(function() {
-                          $( this ).toggleClass( "ui-state-hover" );
+                  $(newli).appendTo(self.find("ul").first()).effect(settings.effect, {}, settings.duration)/*.hover(function() {
+                          $( this ).toggleClass( "ui-state-hover" )*/;
                       }).find('.ui-icon-close').click(function(){
                       
                         $(newID).effect('fade', {}, 250, function(){
