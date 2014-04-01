@@ -1,6 +1,6 @@
 (function($) {
   //template variables 
-    var genLI='<li style="max-width=@width@;min-width=@width@" id="@prefix@@value@" class="ui-widget-content ui-corner-all"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span title="@label@">@text@</span><span class="ui-icon ui-icon-close" title="Remove item"></span></li>',
+    var genLI='<li style="max-width:@width@;min-width:@width@" id="@prefix@@value@" class="ui-widget-content ui-corner-all"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span title="@value@ - @label@">@text@</span><span class="ui-icon ui-icon-close" title="@remove@"></span></li>',
         container='<div class="vui vui-multiselect"><ul class="ui-widget"></ul><button>@button@</button></div>';
 
     
@@ -16,6 +16,7 @@
             buttonIcon:"ui-icon-circle-check",
             width:"200px", //in pixels, or "auto"
             text:"value",   //value | label   (item content display)     
+            removeTitle:"Remove items",
             action:function(list){ //handler triggered when clicking run button
                 alert("Run custom stuff with list of values: "+list.join(","));
             }
@@ -37,15 +38,18 @@
               if( !self.find(newID).length){
                   //ID does not exist, this is a new row
                   var m=e.message,
-                      text=(settings.text=="value"?m.value:m.label), 
+                      text=(settings.text=="value"?m.value:m.label),
+                      title=m.label+"-"+m.value,
                       newli=genLI.replace(/@prefix@/g,settings.prefix)
-                                 .replace(/@value@/g,m.value).replace(/@label@/g,m.label)
+                                 .replace(/@value@/g,m.value)
+                                 .replace(/@label@/g,m.label)
+                                 .replace(/@remove@/g,settings.removeTitle)
                                  .replace(/@text@/g,text)
                                  .replace(/@width@/g,settings.width);
                                  
                   $(newli).appendTo(self.find("ul").first()).effect(settings.effect, {}, settings.duration).hover(function() {
                           $( this ).toggleClass( "ui-state-hover" );
-                      }).tooltip().find('.ui-icon-close').click(function(){
+                      }).find('.ui-icon-close').click(function(){
                       
                         $(newID).effect('fade', {}, 250, function(){
                                 $(this).remove();
