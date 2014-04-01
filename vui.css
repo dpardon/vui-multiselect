@@ -1,5 +1,5 @@
 .vui-multiselect{ list-style-type: none; margin: 0; padding: 0 }
-.vui-multiselect li { cursor:move;display:block; margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.6em; font-size: 0.8em; height: 20px; min-width:250px;max-width:250px}
+.vui-multiselect li { cursor:move;display:block; margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.6em; font-size: 80%; height: auto}
 .vui-multiselect li span.ui-icon-arrowthick-2-n-s { position: absolute; margin-left: -1.3em }
-.vui-multiselect li span.ui-icon{margin-top:2px;display:inline}
+.vui-multiselect li span.ui-icon{margin-top:auto;display:inline}
 .vui-multiselect li span.ui-icon-close { float:right;cursor:pointer }
