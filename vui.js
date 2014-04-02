@@ -1,7 +1,7 @@
 (function($) {
   //template variables 
     var genLI='<li style="min-width:@width@" id="@prefix@@value@" class="ui-widget-content ui-corner-all"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span title="@value@ - @label@">@text@</span><span class="ui-icon ui-icon-close" title="@remove@"></span></li>',
-        container='<div class="vui vui-multiselect"><ul class="ui-widget"></ul><button>@button@</button></div>';
+        container='<div class="vui vui-multiselect"><ul class="ui-widget"></ul><button>@button@</button></br><div class="vui-msginfo ui-widget-content"></div></div>';
 
     
     $.fn.visioMultiselect=function(options){
@@ -9,7 +9,7 @@
         var settings = $.extend({
             // These are the defaults options
             duration: 2000, //animation duration
-            eventID:"vbroadcast", //event to listen
+            eventID:"vbroadcast", //event ID to listen
             prefix:"vui_multi_li_", //prefix of DOM IDs created
             effect: "highlight", //effect
             button:"Run stuff", //label
@@ -18,7 +18,7 @@
             text:"value",   //value | label   (item content display)     
             removeTitle:"Remove item",
             action:function(list){ //handler triggered when clicking run button
-                alert("Run custom stuff with list of values: "+list.join(","));
+                self.find(".vui-msginfo").html("Run custom stuff with list of values: "+list.join(",")).effect( settings.effect, {}, settings.duration);
             }
         }, options ),
             self=this,
