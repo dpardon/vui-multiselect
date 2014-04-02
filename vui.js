@@ -16,7 +16,7 @@
             buttonIcon:"ui-icon-circle-check",
             width:"120px", //in pixels, or "auto"
             text:"value",   //value | label   (item content display)     
-            removeTitle:"Remove items",
+            removeTitle:"Remove item",
             action:function(list){ //handler triggered when clicking run button
                 alert("Run custom stuff with list of values: "+list.join(","));
             }
