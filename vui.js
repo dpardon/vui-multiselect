@@ -18,7 +18,7 @@
             text:"value",   //value | label   (item content display)     
             removeTitle:"Remove item",
             action:function(list){ //handler triggered when clicking run button
-                self.find(".vui-msginfo").html("<b>Run custom stuff with list of values:</b> [ "+list.join(",")+" ]").effect( settings.effect, {}, settings.duration);
+                self.find(".vui-msginfo").html("<b>Run custom stuff with list of values:</b> [ "+list.join(",")+" ]").show().effect( settings.effect, {}, settings.duration);
             }
         }, options ),
             self=this,
