@@ -3,3 +3,4 @@
 .vui-multiselect li span.ui-icon-arrowthick-2-n-s { position: absolute; margin-left: -1.3em }
 .vui-multiselect li span.ui-icon{margin-top:0.4em;display:inline}
 .vui-multiselect li span.ui-icon-close { margin-left:5px;float:right;cursor:pointer }
+.vui-multiselect div.vui-msginfo {padding:0.4em;text-align:center;margin-top:10px}
