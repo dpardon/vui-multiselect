@@ -2,4 +2,4 @@
 .vui-multiselect li { cursor:move;display:inline-block; margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.6em; font-size: 80%; height: auto}
 .vui-multiselect li span.ui-icon-arrowthick-2-n-s { position: absolute; margin-left: -1.3em }
 .vui-multiselect li span.ui-icon{margin-top:0.4em;display:inline}
-.vui-multiselect li span.ui-icon-close { float:right;cursor:pointer }
+.vui-multiselect li span.ui-icon-close { margin-left:5px;float:right;cursor:pointer }
