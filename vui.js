@@ -1,6 +1,6 @@
 (function($) {
   //template variables 
-    var genLI='<li style="mmin-width:@width@" id="@prefix@@value@" class="ui-widget-content ui-corner-all"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span title="@value@ - @label@">@text@</span><span class="ui-icon ui-icon-close" title="@remove@"></span></li>',
+    var genLI='<li style="min-width:@width@" id="@prefix@@value@" class="ui-widget-content ui-corner-all"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span title="@value@ - @label@">@text@</span><span class="ui-icon ui-icon-close" title="@remove@"></span></li>',
         container='<div class="vui vui-multiselect"><ul class="ui-widget"></ul><button>@button@</button></div>';
 
     
