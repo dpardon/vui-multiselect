@@ -1,7 +1,7 @@
 (function($) {
   //template variables 
     var genLI='<li style="min-width:@width@" id="@prefix@@value@" class="ui-widget-content ui-corner-all"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><span title="@value@ - @label@">@text@</span><span class="ui-icon ui-icon-close" title="@remove@"></span></li>',
-        container='<div class="vui vui-multiselect"><ul class="ui-widget"></ul><button>@button@</button></br><div class="vui-msginfo ui-widget-content"></div></div>';
+        container='<div class="vui vui-multiselect"><ul class="ui-widget"></ul><button>@button@</button><div class="vui-msginfo ui-widget-content"></div></div>';
 
     
     $.fn.visioMultiselect=function(options){
@@ -18,7 +18,7 @@
             text:"value",   //value | label   (item content display)     
             removeTitle:"Remove item",
             action:function(list){ //handler triggered when clicking run button
-                self.find(".vui-msginfo").html("Run custom stuff with list of values: "+list.join(",")).effect( settings.effect, {}, settings.duration);
+                self.find(".vui-msginfo").html("<b>Run custom stuff with list of values:</b> [ "+list.join(",")+" ]").effect( settings.effect, {}, settings.duration);
             }
         }, options ),
             self=this,
